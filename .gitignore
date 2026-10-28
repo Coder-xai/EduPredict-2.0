@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# EduPredict local student records
+edupredict.db
+edupredict.db-journal
