@@ -220,3 +220,6 @@ __marimo__/
 # EduPredict local student records
 edupredict.db
 edupredict.db-journal
+
+# Local distribution archive
+EduPredict-2.0.zip

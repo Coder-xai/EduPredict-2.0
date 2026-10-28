@@ -2,7 +2,11 @@
 
 A web-based student performance analysis prototype for teachers and students. The app combines a local student roster, performance summaries, model evaluation, and an individual student view.
 
+Use Python 3.10 or newer.
+
 ## Run locally
+
+### macOS / Linux
 
 ```bash
 python -m venv .venv
@@ -10,6 +14,17 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 streamlit run main.py
 ```
+
+### Windows PowerShell
+
+```powershell
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+streamlit run main.py
+```
+
+If PowerShell prevents environment activation, run `.\.venv\Scripts\python.exe -m pip install -r requirements.txt` and then `.\.venv\Scripts\streamlit.exe run main.py` instead.
 
 Open the browser URL printed by Streamlit (usually `http://localhost:8501`). The app listens on port `8501` and on network interfaces, so it can also be opened from another device that can reach the host. For a hosted demo, deploy this repository to a Streamlit-compatible service and expose port `8501`.
 
@@ -21,9 +36,7 @@ The first run seeds fictional college-year records. By default, teacher changes 
 2. Sign in at [share.streamlit.io](https://share.streamlit.io), choose **Create app**, and select the repository, `main` branch, and `main.py`.
 3. In the app's **Advanced settings → Secrets**, add the PostgreSQL connection URI from your managed database provider:
 
-   ```toml
-   DATABASE_URL = "postgresql://USER:PASSWORD@HOST:PORT/DATABASE?sslmode=require"
-   ```
+   In the hosting dashboard, set the `DATABASE_URL` secret to your provider's PostgreSQL connection URI. Do not put database credentials in source files or commit them.
 
 4. Deploy and check the app logs if startup fails. Streamlit Community Cloud assigns a `*.streamlit.app` address; you can choose its subdomain during setup. It does not directly attach arbitrary domains you own. To use a custom domain such as `edupredict.demo.com`, choose a host that supports custom domains (for example, Render) and configure its DNS instructions with the domain owner.
 
